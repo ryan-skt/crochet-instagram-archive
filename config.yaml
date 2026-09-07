@@ -1,0 +1,72 @@
+project:
+  name: "crochet-instagram-archive"
+  database_path: "data/database/archive.db"
+  log_file: "data/archive.log"
+
+directories:
+  raw: "data/raw"
+  organized: "data/organized"
+  thumbnails: "data/thumbnails"
+  review: "data/organized/_REVIEW"
+
+classification:
+  vision_model: "gemini-3.6-flash"
+  confidence_threshold: 0.75
+
+taxonomy:
+  bags:
+    - tote_bags
+    - handbags
+    - shoulder_bags
+    - mini_bags
+    - pouches
+    - clutches
+  clothing:
+    - tops
+    - sweaters
+    - cardigans
+    - dresses
+    - skirts
+    - pants
+    - vests
+  accessories:
+    - hats
+    - scarves
+    - gloves
+    - headbands
+    - hair_accessories
+    - jewelry
+  home_decor:
+    - blankets
+    - cushions
+    - baskets
+    - rugs
+    - table_decor
+    - wall_decor
+  toys:
+    - amigurumi
+    - dolls
+    - animals
+    - characters
+  flowers:
+    - bouquets
+    - individual_flowers
+    - flower_accessories
+  keychains:
+    - animals
+    - food
+    - characters
+    - objects
+  baby_items:
+    - baby_clothes
+    - baby_blankets
+    - baby_toys
+    - baby_accessories
+  patterns:
+    - pattern_photos
+    - diagrams
+    - written_patterns
+  other:
+    - unidentified
+    - multiple_items
+    - non_crochet

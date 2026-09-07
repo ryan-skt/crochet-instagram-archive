@@ -1,0 +1,36 @@
+# Environment variables
+.env
+
+# Python caching
+__pycache__/
+*.pyc
+
+# Local data (excluding test seeds if any)
+data/raw/*
+!data/raw/.gitkeep
+data/organized/*
+!data/organized/.gitkeep
+data/database/*.db
+data/thumbnails/*
+!data/thumbnails/.gitkeep
+data/pilot_50/*
+!data/pilot_50/.gitkeep
+
+# Instaloader session files (as a secondary failsafe)
+*instaloader*
+*session*
+*cookie*
+
+# Virtual Environment
+venv/
+.env/
+
+# OS Files
+.DS_Store
+
+# Testing
+.pytest_cache/
+
+*.db
+*.log
+sample_images/
