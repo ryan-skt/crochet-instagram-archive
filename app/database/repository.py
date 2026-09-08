@@ -1,7 +1,7 @@
 from typing import List, Optional
 from sqlalchemy.orm import Session
 from sqlalchemy.exc import IntegrityError
-from app.database.models import Post, Media, Classification
+from app.database.models import Post, Media, Classification, Source
 
 class Repository:
     def __init__(self, session: Session):
@@ -63,3 +63,20 @@ class Repository:
 
     def get_classification_by_media_id(self, media_id: int) -> Optional[Classification]:
         return self.session.query(Classification).filter(Classification.media_id == media_id).first()
+
+    def add_source(self, source: Source) -> Source:
+        self.session.add(source)
+        self.session.commit()
+        self.session.refresh(source)
+        return source
+
+    def get_sources(self) -> List[Source]:
+        return self.session.query(Source).all()
+
+    def get_source_by_id(self, source_id: int) -> Optional[Source]:
+        return self.session.query(Source).filter(Source.id == source_id).first()
+
+    def update_source(self, source: Source) -> Source:
+        self.session.commit()
+        self.session.refresh(source)
+        return source

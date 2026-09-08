@@ -58,3 +58,16 @@ class Classification(Base):
     classified_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
     
     media = relationship("Media", back_populates="classification")
+
+class Source(Base):
+    __tablename__ = "sources"
+    
+    id: Mapped[int] = mapped_column(primary_key=True)
+    type: Mapped[str] = mapped_column(String(50))
+    username: Mapped[Optional[str]] = mapped_column(String(255))
+    url: Mapped[Optional[str]] = mapped_column(String(500))
+    status: Mapped[str] = mapped_column(String(50), default="ready")
+    created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
+    last_run_at: Mapped[Optional[datetime]] = mapped_column(DateTime)
+    media_count: Mapped[int] = mapped_column(Integer, default=0)
+    error_message: Mapped[Optional[str]] = mapped_column(String)
